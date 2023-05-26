@@ -1,4 +1,5 @@
 const { readFileSync, writeFileSync, unlinkSync } = require("fs");
+const templateData = require('./data.json');
 
 // remove existing report files, if they exist
 try {
@@ -36,9 +37,7 @@ jsreport.use(require("@jsreport/jsreport-unoconv")());
         },
       },
     },
-    data: {
-      helloWorld: "Hello, World!",
-    },
+    data:templateData
   });
 
   // Write report.docx to disk
@@ -62,9 +61,7 @@ jsreport.use(require("@jsreport/jsreport-unoconv")());
         enabled: true,
       },
     },
-    data: {
-      helloWorld: "Hello, World!",
-    },
+    data: templateData
   });
 
   // Write report.pdf to disk
